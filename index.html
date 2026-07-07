@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pra Minha Rapunzel ❤️</title>
+    <!-- Fontes Estilo Capa de Álbum e Roda de Samba -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Cores Escuras e Quentes - Paleta de Erro Favorito */
+            background-color: #3d0a0e;
+            background-image: linear-gradient(180deg, #2b0508 0%, #120102 100%);
+            color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Efeito de Iluminação de Abajur Amarelo de Botequim */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(253, 224, 71, 0.12) 0%, rgba(0,0,0,0) 70%);
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Moldura Principal do Site */
+        .main-card {
+            background: rgba(15, 10, 11, 0.96);
+            border: 1px solid rgba(253, 224, 71, 0.25);
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.95);
+            max-width: 520px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* Banner com Foto Integrada do Artista */
+        .artist-header {
+            width: 100%;
+            height: 320px;
+            background-image: linear-gradient(to bottom, rgba(15, 10, 11, 0) 40%, rgba(15, 10, 11, 1) 100%), 
+                              url('https://letras.mus.br');
+            background-size: cover;
+            background-position: center top;
+            border-bottom: 2px solid #5c1319;
+        }
+
+        /* Espaçamento do Texto */
+        .content-area {
+            padding: 30px 25px 40px 25px;
+            text-align: center;
+        }
+
+        .track-badge {
+            font-family: 'Cinzel', serif;
+            color: #fde047; 
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 0.8rem;
+            color: #a39ca0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+            font-weight: 600;
+        }
+
+        /* Bloco Poético da Declaração */
+        .lyrics-content {
+            text-align: left;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            color: #e3dec9; 
+        }
+
+        .lyrics-content p {
+            margin-bottom: 22px;
+        }
+
+        .highlight-2z {
+            color: #ffffff;
+            font-weight: 700;
+            background: linear-gradient(120deg, rgba(92, 19, 25, 0.9) 0%, rgba(0,0,0,0) 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
+            border-left: 2px solid #fde047;
+        }
+
+        .rapunzel-tag {
+            color: #fde047;
+            font-weight: 700;
+            font-family: 'Cinzel', serif;
+        }
+
+        .signature {
+            margin-top: 40px;
+            font-style: italic;
+            color: #a39ca0;
+            font-size: 0.95rem;
+            border-left: 3px solid #5c1319;
+            padding-left: 15px;
+        }
+
+        /* Botão do Spotify Redesenhado */
+        .action-area {
+            margin-top: 40px;
+            border-top: 1px solid rgba(253, 224, 71, 0.15);
+            padding-top: 25px;
+        }
+
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #5c1319;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 18px 24px;
+            border-radius: 6px;
+            width: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(92, 19, 25, 0.4);
+            letter-spacing: 2px;
+            border: 1px solid rgba(253, 224, 71, 0.3);
+        }
+
+        .btn-play:hover {
+            background: #7d1a22;
+            transform: translateY(-2px);
+            border-color: #fde047;
+        }
+
+        /* Chuva Interativa de Rosas e Notas Musicais */
+        .samba-fall {
+            position: fixed;
+            top: -10%;
+            z-index: 1;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        @media (max-width: 480px) {
+            .content-area { padding: 25px 20px 35px 20px; }
+            .artist-header { height: 260px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-card">
+        <!-- Divisor com a Imagem do Cantor -->
+        <div class="artist-header"></div>
+
+        <div class="content-area">
+            <span class="track-badge">Faixa Exclusiva • Lado A</span>
+            <h1>Erro Favorito</h1>
+            <div class="subtitle">A Malandragem do Samba & O Trap do 2ZDinizz</div>
+
+            <div class="lyrics-content">
+                <p>Neneca, de segunda a sexta a minha rotina é foda, naquele pique correria de rua que você bem conhece. Mas basta você surgir para eu lembrar que a vida de um malandro ganha a cadência perfeita ao seu lado. Eu posso não saber a data exata em que a nossa história começou no calendário, mas sei exatamente o segundo em que meu peito entendeu que não queria mais nenhuma outra caminhando comigo. <span class="rapunzel-tag">Você jogou as tuas tranças</span> do alto do castelo, me tirou da tempestade e transformou o meu caos na mais linda melodia.</p>
+                
+                <p>Eu sei que as tuas amigas vivem dizendo por aí que eu sou um erro, que a minha postura de rua ou meu jeito não combinam com o seu. Mas elas não fazem a menor ideia do nosso mundo no sigilo, longe de todo esse barulho. A grande verdade é que se eu for um problema, eu sou o teu <span class="highlight-2z">erro favorito</span>. Elas falam demais do lado de fora, mas só você conhece a nossa verdadeira sintonia quando o tantã cala e a pressa da cidade some. Nosso amor corre pelo certo, não vive de pose e tem o respeito de uma velha guarda.</p>
+                
+                <p>Você tem essa essência linda de quem sabe apreciar a poesia da rua e o encanto de uma boa roda de samba. E até mesmo quando a gente se desentende e você fica brava com o meu jeito marrento, você consegue ser a mulata mais perfeita que eu já vi versar. Olhar para você, minha Neneca, é o meu refúgio sagrado depois do corre. Você de frente é a minha 01 absoluta e inegociável. Que o mundo continue fazendo barulho lá fora, porque aqui dentro a gente dita o nosso próprio compasso.</p>
+                
+                <div class="signature">
+                    Do seu malandro favorito, que te escolheu para ser a dona do primeiro tantã e de todas as tracks da vida.
+                </div>
+            </div>
+
+            <div class="action-area">
+                <!-- Direcionamento Exato para o Spotify Oficial -->
+                <a href="https://spotify.com" target="_blank" class="btn-play">
+                    Soltar o Som Oficial
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de Animação das Flores e Notas -->
+    <script>
+        function createSambaFlakes() {
+            const elements = ['🌹', '🎶', '❤️', '🎸'];
+            const flake = document.createElement('div');
+            flake.classList.add('samba-fall');
+            flake.innerText = elements[Math.floor(Math.random() * elements.length)];
+            
+            flake.style.left = Math.random() * 100 + 'vw';
+            flake.style.animationDuration = Math.random() * 3 + 4 + 's';
+            flake.style.fontSize = Math.random() * 15 + 12 + 'px';
+            
+            document.body.appendChild(flake);
+            
+            setTimeout(() => { flake.remove(); }, 7000);
+        }
+        setInterval(createSambaFlakes, 450);
+    </script>
+
+</body>
+</html>
